@@ -1,0 +1,28 @@
+<div class="list-container">
+    <div class="list-header">
+        <p class="list-title">Task List</p>
+        <i class="material-icons add-icon" (click)="goCreate()">add</i>
+    </div>
+    <div class="list-content">
+        <div class="list-item-head">
+            <div class="list-item-content">
+                <p class="task-title">Title</p>
+                <p class="task-description">Description</p>
+                <p class="task-date">Due Date</p>
+            </div>
+            <div class="list-item-actions">
+            </div>
+        </div>
+        <div class="list-item" *ngFor="let task of tasks">
+            <div class="list-item-content">
+                <p class="task-title">{{task.title}}</p>
+                <p class="task-description">{{task.description}}</p>
+                <p class="task-date">{{task.dueDate}}</p>
+            </div>
+            <div class="list-item-actions">
+                <i class="material-icons task-icon" (click)="goEdit(task.id)">edit</i>
+                <i class="material-icons task-icon" (click)="deleteTask(task.id)">delete</i>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+.list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.list-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+.list-title{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    width: 80%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:#040D12;
+    flex: 90%;
+}
+
+.add-icon{
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.list-content{
+    width: 70%;
+}
+
+.list-item-head{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #183D3D ;
+    color:white;
+}
+
+.list-item{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.list-item-content{
+    display: flex;
+    width: 100%;
+    flex:90%;
+}
+
+.task-title{
+    flex:30%;
+}
+
+.task-description{
+    flex: 60%;
+}
+
+.task-date{
+    flex: 10%;
+}
+
+.list-item-actions{
+    flex: 10%;
+    display: flex;
+    width: 100%;
+    margin-left: 40px;
+    align-items: center;
+}
+
+.task-icon{
+    font-size: 1.8rem;
+    margin-right: 20px;
+    cursor: pointer;
+}
