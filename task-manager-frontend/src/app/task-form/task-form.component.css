@@ -1,0 +1,121 @@
+.task-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 90vh;
+}
+
+.form-head{
+    display: flex;
+    align-items: center;
+    border-bottom: #183D3D 2px solid;
+    margin-bottom: 20px;
+}
+
+.form-title{
+    flex:90%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.view-button{
+  background-color: #183D3D;
+  border-radius: 3px;
+  border: none;
+  /* box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset; */
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  flex:10%;
+  height: 40px;
+}
+
+.view-button:hover,
+.view-button:focus {
+  background-color: #183D3D;
+  color: white;
+}
+
+.view-button:active {
+  background-color: #a0c7e4;
+  color: white;
+}
+
+.task-form{
+    width: 50%;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-label{
+    font-size: 18px;
+}
+
+.form-input{
+    height: 30px;
+    font-size: 16px;
+    padding: 1px 5px;
+}
+
+.form-textarea{
+    height: 100px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+
+.submit-button{
+    background-color: #183D3D;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 30%;
+  }
+  
+  .submit-button:hover,
+  .submit-button:focus {
+    opacity: .75;
+  }

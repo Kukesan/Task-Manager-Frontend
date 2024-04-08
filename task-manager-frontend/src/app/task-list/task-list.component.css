@@ -8,9 +8,9 @@
 
 .list-header{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 70%;
+    border-bottom: #183D3D 2px solid;
 }
 
 .list-title{
@@ -34,7 +34,6 @@
 
 .list-item-head{
     display: flex;
-    width: 100%;
     padding: 10px;
     margin-top: 10px;
     background-color: #183D3D ;
@@ -43,7 +42,6 @@
 
 .list-item{
     display: flex;
-    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     margin-top: 10px;

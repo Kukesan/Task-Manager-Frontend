@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+}
+
+p{
+    margin: 0;
+}

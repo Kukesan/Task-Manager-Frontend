@@ -1,1 +1,21 @@
-<p>task-form works!</p>
+<div class="task-form-container">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+        <div class="form-head">
+            <p class="form-title">Task Form</p>
+            <button (click)="goList()" class="view-button">View Tasks</button>
+        </div>
+        <div class="form-group">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-input" id="title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="dueDate" class="form-label">Due Date</label>
+            <input type="date" class="form-input" id="dueDate" formControlName="dueDate">
+        </div>
+        <div class="form-group">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-textarea" id="description" formControlName="description"></textarea>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
