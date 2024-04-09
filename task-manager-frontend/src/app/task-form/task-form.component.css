@@ -72,13 +72,12 @@
 }
 
 .form-label{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .form-input{
-    height: 30px;
     font-size: 16px;
-    padding: 1px 5px;
+    padding: 4px 6px;
 }
 
 .form-textarea{
@@ -112,7 +111,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 30%;
+    width: 20%;
   }
   
   .submit-button:hover,
