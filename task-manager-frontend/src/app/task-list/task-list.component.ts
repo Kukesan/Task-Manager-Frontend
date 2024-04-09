@@ -1,7 +1,8 @@
+import { TaskList } from './../models/tasklist.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TaskList } from '../models/tasklist.model';
 import { TasksService } from '../services/tasks.service';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-task-list',
@@ -10,20 +11,12 @@ import { TasksService } from '../services/tasks.service';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks: TaskList[] = [
-    // {id:1, title:"Task 1", description:"Description 1", status:"Not Started", dueDate:"2021-10-01"},
-    // {id:2, title:"Task 2", description:"Description 2", status:"In Progress", dueDate:"2021-10-02"},
-    // {id:3, title:"Task 3", description:"Description 3 cbgfhfhfhf gfgfhgfhg hfhgfh", status:"Completed", dueDate:"2021-10-03"},
-    // {id:4, title:"Task 4", description:"Description 4 njkjknnk nknknnn nknkllln nlnlnnlkln nknklnlnlk nklnll njkjknnk nknknnn nknkllln nlnlnnlkln nknklnlnlk nklnll" , status:"Not Started ", dueDate:"2021-10-04"},
-    // {id:5, title:"Task 5", description:"Description 5", status:"In Progress", dueDate:"2021-10-05"},
-    // {id:6, title:"Task 6", description:"Description 6", status:"Completed", dueDate:"2021-10-06"},
-    // {id:7, title:"Task 7", description:"Description 7", status:"Not Started", dueDate:"2021-10-07"},
-    // {id:8, title:"Task 8", description:"Description 8", status:"In Progress", dueDate:"2021-10-08"},
-    // {id:9, title:"Task 9", description:"Description 9", status:"Completed", dueDate:"2021-10-09"},
-    // {id:10, title:"Task 10", description:"Description 10", status:"Not Started", dueDate:"2021-10-10"},
-  ];
+  taskView: any;
 
-  constructor(private router: Router, private tasksService: TasksService) { }
+  tasks: TaskList[] = [];
+
+  constructor(private router: Router, private tasksService: TasksService, protected modalService: ModalService) {
+   }  
 
   ngOnInit(): void {
     this.getAllTasks();
@@ -36,7 +29,7 @@ export class TaskListComponent implements OnInit {
   getAllTasks() {
     console.log("Get All Tasks");
     this.tasksService.getAllTasks().subscribe(
-      (response: any) => {
+      (response: TaskList[]) => {
         console.log(response);
         this.tasks = response;
       }
@@ -50,10 +43,29 @@ export class TaskListComponent implements OnInit {
   deleteTask(id: number) {
     console.log("Delete Task with id: " + id);
     this.tasksService.deleteTask(id).subscribe(
-      (response: any) => {
+      (response: TaskList) => {
         console.log(response);
         this.getAllTasks();
       }
     )
+  }
+
+  openModalAndViewTask(taskId: number): void {
+    this.modalService.open('modal-1');
+    this.viewTask(taskId);
+  }
+
+  viewTask(taskId: number) {
+    console.log("View Task with id: " + taskId);
+    this.tasksService.getTaskById(taskId).subscribe(
+      (response: TaskList) => {
+        console.log(response);
+        this.taskView = response;
+      }
+    )
+  }
+
+  closeModal() {
+    this.modalService.close();
   }
 }

@@ -13,6 +13,8 @@ export class TaskFormComponent implements OnInit {
 
   taskForm: FormGroup;
   id: number = -1;
+  submitMessage: string = '';
+  submitStatus:string = 'Submit';
 
   constructor(
     private router: Router,
@@ -26,6 +28,7 @@ export class TaskFormComponent implements OnInit {
       this.tasksService.getTaskById(this.id).subscribe(
         (response: TaskList) => {
           this.taskForm.patchValue(response);
+          this.submitStatus = 'Update';
         },
         (error: any) => {
           console.error('Error retrieving task:', error);
@@ -46,14 +49,16 @@ export class TaskFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.taskForm.value);
+    let submitMsg = <HTMLElement>document.getElementById("submit-message");
     if (this.taskForm.valid) {
       const taskData: TaskList = this.taskForm.value;
       console.log('Card data:', taskData);
       if (this.id == -1) {
         this.tasksService.addTask(taskData).subscribe(
           (response: any) => {
-            console.log(response)
-            
+            console.log(response);
+            submitMsg.style.color = 'green';
+            this.submitMessage = 'Task added successfully';
           }
         )
       } else {
@@ -61,12 +66,17 @@ export class TaskFormComponent implements OnInit {
         this.tasksService.updateTask(taskData).subscribe(
           (response: any) => {
             console.log(response)
+            
+            submitMsg.style.color = 'green';
+            this.submitMessage = 'Task updated successfully';
           }
         )
       }
       this.taskForm.reset(); 
     } else {
       console.log("Form is invalid, display error messages or perform other actions");
+      submitMsg.style.color = 'red';
+      this.submitMessage = 'Please fill in all the required fields';
     }
   }
 

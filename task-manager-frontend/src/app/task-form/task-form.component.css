@@ -98,7 +98,6 @@
     font-size: 16px;
     font-weight: 700;
     line-height: 1.5;
-    margin: 0;
     max-width: none;
     min-height: 44px;
     min-width: 10px;
@@ -112,9 +111,34 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
   
   .submit-button:hover,
   .submit-button:focus {
     opacity: .75;
   }
+
+  /* Apply red border to invalid form controls */
+.form-group.ng-invalid {
+  border-color: red !important;
+}
+
+/* Apply green border to valid form controls */
+.form-group.ng-valid {
+  border-color: green;
+}
+
+/* Apply red color to error message */
+.error-message {
+  color: red;
+  font-size: 14px;
+}
+
+#submit-message{
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+}

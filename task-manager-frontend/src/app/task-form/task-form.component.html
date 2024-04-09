@@ -4,18 +4,35 @@
             <p class="form-title">Task Form</p>
             <button (click)="goList()" class="view-button">View Tasks</button>
         </div>
-        <div class="form-group">
+        <div class="form-group"
+            [ngClass]="{ 'ng-invalid': taskForm.get('title')?.invalid && taskForm.get('title')?.touched,
+                                           'ng-valid': taskForm.get('title')?.valid && taskForm.get('title')?.touched }">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-input" id="title" formControlName="title">
+            <div *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched" class="error-message">
+                Title is required
+            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{ 'ng-invalid': taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched,
+        'ng-valid': taskForm.get('dueDate')?.valid && taskForm.get('dueDate')?.touched }">
             <label for="dueDate" class="form-label">Due Date</label>
-            <input type="date" class="form-input" id="dueDate" formControlName="dueDate">
+            <input type="datetime-local" class="form-input" id="dueDate" formControlName="dueDate">
+            <div *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched" class="error-message">
+                DueDate is required
+            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{ 'ng-invalid': taskForm.get('description')?.invalid && taskForm.get('description')?.touched,
+        'ng-valid': taskForm.get('description')?.valid && taskForm.get('description')?.touched }">
             <label for="description" class="form-label">Description</label>
             <textarea class="form-textarea" id="description" formControlName="description"></textarea>
+            <div *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched"
+                class="error-message">
+                Description is required
+            </div>
         </div>
-        <button type="submit" class="submit-button">Submit</button>
+        <button type="submit" class="submit-button" >{{submitStatus}}</button>
+        <div id="submit-message">
+            {{submitMessage}}
+        </div>
     </form>
 </div>

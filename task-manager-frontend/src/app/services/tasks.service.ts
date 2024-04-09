@@ -10,7 +10,7 @@ export class TasksService {
 
   constructor(private http : HttpClient) { }
 
-  baseUrl = 'https://localhost:7177/api/TaskDetails';
+  baseUrl = 'https://localhost:7177/api/Tasks';
 
   getTaskById(id: number): Observable<TaskList> {
     return this.http.get<TaskList>(this.baseUrl+'/'+id);

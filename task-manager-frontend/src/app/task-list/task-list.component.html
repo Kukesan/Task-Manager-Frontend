@@ -13,8 +13,8 @@
             <div class="list-item-actions">
             </div>
         </div>
-        <div class="list-item" *ngFor="let task of tasks">
-            <div class="list-item-content">
+        <div class="list-item" *ngFor="let task of tasks"  >
+            <div class="list-item-content" (click)="openModalAndViewTask(task.id)">
                 <p class="task-title">{{task.title}}</p>
                 <p class="task-description">{{task.description}}</p>
                 <p class="task-date">{{task.dueDate}}</p>
@@ -26,3 +26,13 @@
         </div>
     </div>
 </div>
+
+<jw-modal id="modal-1">
+    <div class="view-task-detail" *ngIf="taskView">
+        <p class="view-task-head">Task Details</p>
+        <p class="view-task-title">Title: {{ taskView.title }}</p>
+        <p class="view-task-description">Description: {{ taskView.description }}</p>
+        <p class="view-task-duedate">Due Date: {{ taskView.dueDate }}</p>
+        <button (click)="closeModal()" class="close-button">Close</button>
+    </div>
+</jw-modal>
